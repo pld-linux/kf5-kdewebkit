@@ -1,14 +1,14 @@
-%define		kdeframever	5.39
+%define		kdeframever	5.43
 %define		qtver		5.3.2
 %define		kfname		kdewebkit
 Summary:	Integration of the HTML rendering engine WebKit
 Name:		kf5-%{kfname}
-Version:	5.39.0
+Version:	5.43.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/frameworks/%{kdeframever}/%{kfname}-%{version}.tar.xz
-# Source0-md5:	b8483860fe5234ed06c04318b454a736
+# Source0-md5:	c30a2a178179b024f5ebc188e9939b80
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5DBus-devel >= 5.2.0
