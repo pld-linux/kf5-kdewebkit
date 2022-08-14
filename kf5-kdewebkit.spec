@@ -1,17 +1,17 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.96
+%define		kdeframever	5.97
 %define		qtver		5.15.2
 %define		kfname		kdewebkit
 Summary:	Integration of the HTML rendering engine WebKit
 Name:		kf5-%{kfname}
-Version:	5.96.0
+Version:	5.97.0
 Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/portingAids/%{kfname}-%{version}.tar.xz
-# Source0-md5:	33536b233d381c587c1c75c52567f5aa
+# Source0-md5:	b67212701c202167ba858c76292cf878
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5DBus-devel >= 5.2.0
