@@ -1,17 +1,17 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeframever	5.108
+%define		kdeframever	5.109
 %define		qtver		5.15.2
 %define		kfname		kdewebkit
 Summary:	Integration of the HTML rendering engine WebKit
 Name:		kf5-%{kfname}
-Version:	5.108.0
-Release:	2
+Version:	5.109.0
+Release:	1
 License:	LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/frameworks/%{kdeframever}/portingAids/%{kfname}-%{version}.tar.xz
-# Source0-md5:	78485c84be0265bc1d5a0d790cd81314
+# Source0-md5:	929785c0f7a5594f4eac30c2f40645d5
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5DBus-devel >= 5.2.0
@@ -27,7 +27,7 @@ BuildRequires:	Qt5Test-devel
 BuildRequires:	Qt5WebKit-devel >= 5.3.1
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	Qt5Xml-devel >= 5.2.0
-BuildRequires:	cmake >= 2.8.12
+BuildRequires:	cmake >= 3.16
 BuildRequires:	gettext-devel
 BuildRequires:	kf5-attica-devel >= %{version}
 BuildRequires:	kf5-extra-cmake-modules >= 1.0.0
@@ -91,24 +91,14 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 %setup -q -n %{kfname}-%{version}
 
 %build
-install -d build
-cd build
-%cmake -G Ninja \
+%cmake -B build \
+	-G Ninja \
 	%{!?with_tests:-DBUILD_TESTING=OFF} \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	..
-%ninja_build
+	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 
-%if %{with tests}
-ctest
-%endif
+%ninja_build -C build
 
-
-%{?with_tests:%ninja_build test}
-
-%if %{with tests}
-ctest
-%endif
+%{?with_tests:%ninja_build -C build test}
 
 
 %install
