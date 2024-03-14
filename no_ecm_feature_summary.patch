@@ -1,0 +1,9 @@
+diff -up kdewebkit-5.115.0/CMakeLists.txt.ddd kdewebkit-5.115.0/CMakeLists.txt
+--- kdewebkit-5.115.0/CMakeLists.txt.ddd	2024-03-14 16:47:52.359559583 +0100
++++ kdewebkit-5.115.0/CMakeLists.txt	2024-03-14 16:48:07.787440666 +0100
+@@ -76,5 +76,3 @@ install(FILES
+   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KDEWebKit COMPONENT Devel
+ )
+ 
+-include(ECMFeatureSummary)
+-ecm_feature_summary(WHAT ALL   FATAL_ON_MISSING_REQUIRED_PACKAGES)
