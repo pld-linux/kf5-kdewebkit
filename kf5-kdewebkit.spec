@@ -90,7 +90,7 @@ Pliki nagłówkowe dla programistów używających %{kfname}.
 
 %prep
 %setup -q -n %{kfname}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %cmake -B build \
